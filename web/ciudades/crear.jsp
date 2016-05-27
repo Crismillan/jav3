@@ -39,15 +39,17 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Crear Ciudades</h3>
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <label for="exampleInputName2">Nombre</label>
-                                <input type="text" class="form-control" id="exampleInputName2" placeholder="Punta Arenas">
-                            </div>                            
-                            <button type="submit" class="btn btn-default">AGREGAR</button>
-                        </form>
+                        
                     </div>
                     <div class="panel-body">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
             
                     </div>
                 </div>
