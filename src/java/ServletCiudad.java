@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import accesodato.Coneccion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,18 +30,19 @@ public class ServletCiudad extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            
-            
-            
-            
-            
-            
-        }
-    }
+           throws ServletException, IOException {
+         response.setContentType("text/html;charset=UTF-8");
+         try (PrintWriter out = response.getWriter()) {
+                 //ESTA PARTE VA NUESTRO CODIGO
+                 String nombre=request.getParameter("nombre");
+                 Coneccion con=new Coneccion();
+                con.setInsertar("insert into Ciudades(nombre) values('"+nombre+"')");
+                 response.sendRedirect("ciudades/index.jsp");
+                 
+                 
+                 
+         }
+     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
