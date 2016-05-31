@@ -68,6 +68,9 @@
                                                 out.println("<td>"+con.getResultado().getString("apepat")+"</td>");
                                                 out.println("<td>"+con.getResultado().getString("apemat")+"</td>");
                                                 out.println("<td>"+con.getResultado().getString("ciudad")+"</td>");
+                                                out.println("<td><a href='../ServletUsuario?eliminar="+con.getResultado().getString("usuario_id") +" 'class='btn btn-danger'>Eliminar</a></td> ");
+                                       
+                                                
                                             out.println("</tr>");
                                         }
                                     

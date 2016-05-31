@@ -92,9 +92,15 @@ public class Usuario {
     
     }
     
-    public void eliminarUsuario(){}
+    public void eliminarUsuario(){
+    con.setInsertar("update Usuarios set estado='pasivo' where usuario_id='"+this.getUsuario_id()+"'");
     
-    public void actualizarUsuario(){}
+    
+    }
+    
+    public void actualizarUsuario(){
+   
+    }
     
     
     

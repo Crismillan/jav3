@@ -5,6 +5,8 @@
  */
 package negocio;
 
+import accesodato.Coneccion;
+
 
 public class Ciudad {
     
@@ -12,7 +14,14 @@ public class Ciudad {
     private String nombre;
     private int ciudad_id;
     private String estado;
-
+   Coneccion con;
+    
+    
+    public Ciudad(){
+    
+    con=new Coneccion();
+    
+    }
     
 
     public String getNombre() {
@@ -43,9 +52,15 @@ public class Ciudad {
     
     
         
-    public void crearCiudad(){}
+    public void crearCiudad(){
+    con.setInsertar("insert into Ciudades(nombre,estado) values('"+this.getNombre()+"','activo')");             
     
-    public void eliminarCiudad(){}
+    }
+    
+    public void eliminarCiudad(){
+    
+    con.setInsertar("update Ciudades set estado='pasivo' where ciudad_id='"+this.getCiudad_id()+"'");
+    }
     
     public void actualizarCiudad(){}
     

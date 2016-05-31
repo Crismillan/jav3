@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import negocio.Ciudad;
 
 /**
  *
@@ -30,19 +31,31 @@ public class ServletCiudad extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-           throws ServletException, IOException {
-         response.setContentType("text/html;charset=UTF-8");
-         try (PrintWriter out = response.getWriter()) {
-                 //ESTA PARTE VA NUESTRO CODIGO
-                 String nombre=request.getParameter("nombre");
-                 Coneccion con=new Coneccion();
-                con.setInsertar("insert into Ciudades(nombre) values('"+nombre+"')");
-                 response.sendRedirect("ciudades/index.jsp");
-                 
-                 
-                 
-         }
-     }
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            //ESTA PARTE VA NUESTRO CODIGO
+            Ciudad ciudad = new Ciudad();
+            String nombre = request.getParameter("nombre");
+
+            String eliminar = request.getParameter("eliminar");
+            if (eliminar != null) {
+
+                int eliminar_id = Integer.parseInt(eliminar);
+                ciudad.setCiudad_id(eliminar_id);
+                response.sendRedirect("ciudades/index.jsp");
+                ciudad.eliminarCiudad();
+
+            } else {
+            
+
+            ciudad.setNombre(nombre);
+            ciudad.crearCiudad();
+
+            response.sendRedirect("ciudades/index.jsp");
+            }
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
