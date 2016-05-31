@@ -46,6 +46,11 @@ public class Coneccion {
 
     
     
+    
+    
+    
+    
+    
     public void setInsertar(String sql){
          try {
              stmt=con.createStatement();
